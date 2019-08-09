@@ -1,7 +1,8 @@
 # rename this file to .env
+# should be used in your local env and don't commit it into repository
 
 # GitHub owner
-GITHUB_OWNER=ant-design
+GITHUB_OWNER=antvis
 
 # Bot's personal access tokens, get from https://github.com/settings/tokens
 GITHUB_TOKEN=token

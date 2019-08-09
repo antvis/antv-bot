@@ -1,7 +1,7 @@
 {
-  "name": "ant-bot",
+  "name": "antv-bot",
   "version": "1.0.0",
-  "description": "ant bot",
+  "description": "A bot for antvis projects",
   "main": "src/app.js",
   "scripts": {
     "start": "node app/index.js",
