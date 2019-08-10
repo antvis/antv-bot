@@ -14,7 +14,7 @@ const router = new Router();
 
 router
   .get('*', function(ctx) {
-    ctx.body = 'Hello World!';
+    ctx.body = 'Hello, this is Antv GitHub Bot!';
   })
   .post('/webhook/:repo', webhook);
 

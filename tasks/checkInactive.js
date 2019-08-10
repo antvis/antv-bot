@@ -2,7 +2,13 @@
 
 require('../app/setup');
 const Duration = require('duration-js');
-const { getIssues, addLabels, removeLabel, closeIssue, commentIssue } = require('../lib/github');
+const {
+  getIssues,
+  addLabels,
+  removeLabel,
+  closeIssue,
+  commentIssue,
+} = require('../lib/github');
 
 const repo = process.argv[2];
 
@@ -50,6 +56,6 @@ function checkActive(issue) {
   }
 }
 
-getIssues(repo).then(issues => {
-  issues.forEach(checkActive);
-});
+// getIssues(repo).then(issues => {
+//   issues.forEach(checkActive);
+// });

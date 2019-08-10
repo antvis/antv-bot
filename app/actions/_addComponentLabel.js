@@ -1,83 +1,55 @@
 const { addLabels } = require('../../lib/github');
+const { REPO_LIST } = require('../constant');
 
-const components = [
-  'Affix',
-  'Alert',
-  'Anchor',
-  'AutoComplete',
-  'Avatar',
-  'BackTop',
-  'Badge',
-  'Breadcrumb',
-  'Button',
-  'Calendar',
-  'Card',
-  'Carousel',
-  'Cascader',
-  'Checkbox',
-  'Collapse',
-  'DatePicker',
-  'Divider',
-  'Dropdown',
-  'Form',
-  'Grid',
-  'Icon',
-  'Input',
-  'InputNumber',
-  'Layout',
-  'List',
-  'Mention',
-  'Menu',
-  'Message',
-  'Modal',
-  'Notification',
-  'Pagination',
-  'Popconfirm',
-  'Popover',
-  'Progress',
-  'Radio',
-  'Rate',
-  'Select',
-  'Slider',
-  'Spin',
-  'Steps',
-  'Switch',
-  'Table',
-  'Tabs',
-  'Tag',
-  'TimePicker',
-  'Timeline',
-  'Tooltip',
-  'Transfer',
-  'Tree',
-  'TreeSelect',
-  'Upload',
-];
+const LABEL_MAP = {
+  g2: [
+    'chart',
+    'axis',
+    'legend',
+    'tooltip',
+    'gemo',
+    'guide',
+    'label',
+    'scale',
+    'coord',
+    'event',
+    'animation',
+    'theme',
+    'dataset',
+    'slider',
+    'brush',
+    'svg',
+    'performance',
+  ],
+};
 
-function addComponentLabel(on) {
+function addLabel(on) {
   on('issues_opened', ({ payload, repo }) => {
-    if (repo !== 'ant-design') {
+    if (REPO_LIST.indexOf(repo) === '-1') {
       return;
     }
     const { issue } = payload;
-    let label;
-    for (let i = 0; i < components.length; ++i) {
-      const component = components[i];
-      if (issue.title.includes(component) || issue.title.includes(component.toLowerCase())) {
-        label = `Component: ${component}`;
+    let realLabel;
+    for (let i = 0; i < LABEL_MAP[repo].length; ++i) {
+      const label = LABEL_MAP[repo][i];
+      if (
+        issue.title.includes(label) ||
+        issue.title.includes(label.toLowerCase())
+      ) {
+        realLabel = label;
         break;
       }
     }
 
-    if (label) {
+    if (realLabel) {
       addLabels({
         owner: payload.repository.owner.login,
         repo,
         number: issue.number,
-        labels: [label],
+        labels: [realLabel],
       });
     }
   });
 }
 
-module.exports = addComponentLabel;
+module.exports = addLabel;
