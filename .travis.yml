@@ -5,8 +5,11 @@ notifications:
     - tjudengfuping@gmail.com
 node_js:
   - 9
+install: rm -rf node_modules && npm install
 script:
   - npm run lint
+after_deploy:
+  - npm run start
 deploy:
   provider: heroku
   skip_cleanup: true
