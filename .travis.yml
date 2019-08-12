@@ -1,4 +1,4 @@
-sudo: false
+sudo: true
 language: node_js
 notifications:
   email:
@@ -16,7 +16,6 @@ deploy:
   on:
     repo: antvis/antv-bot
 env:
-  PORT: 80
   GITHUB_OWNER: antvis
   GITHUB_BOT_NAME: antv-bot
   GITHUB_TOKEN: $GITHUB_TOKEN
