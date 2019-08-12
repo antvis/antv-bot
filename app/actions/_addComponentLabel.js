@@ -7,7 +7,7 @@ const LABEL_MAP = {
     'axis',
     'legend',
     'tooltip',
-    'gemo',
+    'geom',
     'guide',
     'label',
     'scale',
