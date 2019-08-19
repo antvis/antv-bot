@@ -12,12 +12,15 @@ Hello @{user}. Please provide a online reproduction by forking this link {link} 
 
 function replyNeedReproduce(on) {
   on('issues.labeled', ({ payload, repo }) => {
-    if (/Need Reproduce/.test(payload.label.name) && comment[repo]) {
+    if (
+      /Need Reproduce/.test(payload.label.name) &&
+      REPO_CONFIG[repo].reproduceLink
+    ) {
       commentIssue({
         owner: payload.repository.owner.login,
         repo: payload.repository.name,
         number: payload.issue.number,
-        body: format(comment[repo], {
+        body: format(comment, {
           user: payload.issue.user.login,
           link: REPO_CONFIG[repo].reproduceLink,
         }),
