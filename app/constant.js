@@ -41,7 +41,7 @@ const REPO_CONFIG = {
   },
 };
 
-const REPO_LIST = Object.keys(this.REPO_CONFIG);
+const REPO_LIST = Object.keys(REPO_CONFIG);
 
 module.exports = {
   REPO_LIST,
