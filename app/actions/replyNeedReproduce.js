@@ -1,10 +1,6 @@
 const format = require('string-template');
 const { commentIssue } = require('../../lib/github');
-
-const LINK_MAP = {
-  g2: 'https://codesandbox.io/s/g2-reproduction-template-uvzdf',
-  g6: 'https://codesandbox.io/s/g6-reproduction-template-uvzdf',
-};
+const { REPO_CONFIG } = require('../constant');
 
 const comment = `
 Hello @{user}. Please provide a online reproduction by forking this link {link} or a minimal GitHub repository. Issues labeled by \`Need Reproduce\` will be closed if no activities in 7 days.
@@ -23,7 +19,7 @@ function replyNeedReproduce(on) {
         number: payload.issue.number,
         body: format(comment[repo], {
           user: payload.issue.user.login,
-          link: LINK_MAP[repo],
+          link: REPO_CONFIG[repo].reproduceLink,
         }),
       });
     }

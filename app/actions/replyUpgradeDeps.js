@@ -9,19 +9,15 @@ Hello @{user}.
 
 <img src="https://cloud.githubusercontent.com/assets/465125/26667345/4bcc8f10-46d7-11e7-8c72-32a0c68ea7ca.jpg" width="500" height="300">
 `;
-const comment = {
-  g2: reply,
-  g6: reply,
-};
 
 function replyUpgradeDeps(on) {
-  on('issues.labeled', ({ payload, repo }) => {
+  on('issues.labeled', ({ payload }) => {
     if (payload.label.name === 'Upgrade Deps') {
       commentIssue({
         owner: payload.repository.owner.login,
         repo: payload.repository.name,
         number: payload.issue.number,
-        body: format(comment[repo], { user: payload.issue.user.login }),
+        body: format(reply, { user: payload.issue.user.login }),
       });
     }
   });

@@ -1,3 +1,45 @@
 module.exports = {
-  REPO_LIST: ['g2', 'g6'],
+  REPO_LIST: Object.keys(this.REPO_CONFIG),
+  REPO_CONFIG: {
+    g: {
+      reproduceLink: '',
+      labels: [
+        'render',
+        'event',
+        'animation',
+        'group',
+        'shape',
+        'bbox',
+        'document',
+        'svg',
+        'canvas',
+      ],
+    },
+    g2: {
+      reproduceLink: '',
+      labels: [
+        'chart',
+        'axis',
+        'legend',
+        'tooltip',
+        'geom',
+        'guide',
+        'label',
+        'scale',
+        'coord',
+        'event',
+        'animation',
+        'theme',
+        'dataset',
+        'slider',
+        'brush',
+        'svg',
+        'performance',
+      ],
+    },
+    g6: {
+      reproduceLink: '',
+      labels: [],
+    },
+  },
 };
