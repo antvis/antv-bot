@@ -1,18 +1,4 @@
 const REPO_CONFIG = {
-  'antv-bot-test': {
-    reproduceLink: 'https://codesandbox.io/s/g-reproduction-template-w9gb5',
-    labels: [
-      'render',
-      'event',
-      'animation',
-      'group',
-      'shape',
-      'bbox',
-      'document',
-      'svg',
-      'canvas',
-    ],
-  },
   g: {
     reproduceLink: 'https://codesandbox.io/s/g-reproduction-template-w9gb5',
     labels: [
