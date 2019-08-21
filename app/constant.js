@@ -37,7 +37,35 @@ const REPO_CONFIG = {
   },
   g6: {
     reproduceLink: 'https://codesandbox.io/s/g6-reproduction-template-uvzdf',
-    labels: [],
+    labels: [
+      'animation',
+      'Browser Compatible',
+      'bug',
+      'closing',
+      'document',
+      'duplicate',
+      'enhancement',
+      'feature',
+      'help wanted',
+      'invalid',
+      'question',
+      'SVG',
+      'wontfix',
+    ],
+  },
+  l7: {
+    reproduceLink: 'https://codesandbox.io/s/l7-reproduction-template-5m868',
+    labels: [
+      'bug',
+      'duplicate',
+      'enhancement',
+      'feature',
+      'document',
+      'help wanted',
+      'invalid',
+      'question',
+      'wontfix',
+    ],
   },
 };
 
