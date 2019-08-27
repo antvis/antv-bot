@@ -1,7 +1,7 @@
 const format = require('string-template');
 const {
   commentIssue,
-  closeIssue,
+  // closeIssue,
   getMembers,
   addLabels,
 } = require('../../lib/github');
@@ -10,11 +10,11 @@ const { REPO_LIST } = require('../constant');
 
 const comment =
   '\
-Hello @{user}, your issue has been closed because it does not conform to our \
-issue requirements. Please use the [Issue Helper](http://antv-issue-helper.surge.sh?repo={repo}) \
+Hello @{user}, your issue does not conform to our issue requirements. \
+Please use the [Issue Helper](http://antv-issue-helper.surge.sh?repo={repo}) \
 to create an issue, thank you! \n\n\
-你好 @{user}，为了能够进行高效沟通，我们对 issue 有一定的格式要求，你的 issue 因为不符合要求而被自动关闭。\
-你可以通过 [issue 助手](http://antv-issue-helper.surge.sh?repo={repo}) 来创建 issue 以方便我们定位错误。谢谢配合！';
+你好 @{user}，你的 issue 格式不符合我们的格式要求。为了能够进行高效沟通，\
+请通过 [issue 助手](http://antv-issue-helper.surge.sh?repo={repo}) 来创建 issue 以方便我们定位错误。谢谢配合！';
 
 let members = [];
 
@@ -37,11 +37,12 @@ function replyInvalid(on) {
         body: format(comment, { user: opener, repo }),
       });
 
-      closeIssue({
-        owner: payload.repository.owner.login,
-        repo: payload.repository.name,
-        number: payload.issue.number,
-      });
+      // TODO: close issue directly
+      // closeIssue({
+      //   owner: payload.repository.owner.login,
+      //   repo: payload.repository.name,
+      //   number: payload.issue.number,
+      // });
 
       addLabels({
         owner: payload.repository.owner.login,
