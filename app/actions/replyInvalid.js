@@ -29,7 +29,11 @@ function replyInvalid(on) {
     }
     const { issue } = payload;
     const opener = issue.user.login;
-    if (!isIssueValid(issue) && !members.includes(opener)) {
+    if (
+      !isIssueValid(issue) &&
+      !members.includes(opener) && // 仓库成员的 issue 不受规则限制
+      opener !== 'todo[bot]' // todo[bot] 机器人的 issue 不受规则限制
+    ) {
       commentIssue({
         owner: payload.repository.owner.login,
         repo: payload.repository.name,
