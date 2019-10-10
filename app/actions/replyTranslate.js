@@ -1,5 +1,5 @@
 const { commentIssue } = require('../../lib/github');
-const translate = require('google-translate-api');
+const translate = require('@vitalets/google-translate-api');
 
 function containsChinese(title) {
   return /[\u4e00-\u9fa5]/.test(title);
