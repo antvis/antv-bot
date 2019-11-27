@@ -5,10 +5,10 @@
 ### start
 
 ```
-$ yarn
+$ npm install
 $ cp env .env
 $ vim .env
-$ yarn dev
+$ npm run dev
 ```
 
 ### a simplest action
@@ -19,11 +19,8 @@ const { commentIssue } = require('../github');
 
 function hello(on) {
   on('issue_opend', ({ payload }) => {
-    const user = payload.issue.user.login ;
-    commentIssue(
-      payload,
-      `Hello @${user}`,
-    );
+    const user = payload.issue.user.login;
+    commentIssue(payload, `Hello @${user}`);
   });
 }
 
